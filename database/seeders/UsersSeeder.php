@@ -20,6 +20,11 @@ class UsersSeeder extends Seeder
         $adminRole->display_name = "Admin Larapus";
         $adminRole->save();
 
+        $memberRole = new Role;
+        $memberRole->name = "member";
+        $memberRole->display_name = "Member Larapus";
+        $memberRole->save();
+
         // membuat sample admin
         $admin = new User;
         $admin->name = "Admin Larapus";
@@ -34,6 +39,6 @@ class UsersSeeder extends Seeder
         $member->email = "member@gmail.com";
         $member->password = bcrypt("rahasia");
         $member->save();
-        $member->attachRole($adminRole);
+        $member->attachRole($memberRole);
     }
 }
